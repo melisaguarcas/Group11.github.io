@@ -1,0 +1,185 @@
+var currentScene=0;
+var Melisabitmoji=function(bitmojiX,bitmojiY,h) {
+noStroke();
+//head;
+fill(214, 164, 102);
+ellipse(bitmojiX+58*h/100,bitmojiY+63*h/100,75*h/100,100*h/100);//head
+fill(217, 164, 100);
+ellipse(bitmojiX+22*h/100,bitmojiY+72*h/100,14*h/100,22*h/100);//left ear
+ellipse(bitmojiX+93*h/100,bitmojiY+72*h/100,14*h/100,22*h/100);//right ear
+fill(0, 0, 0);
+triangle(bitmojiX+101*h/100,bitmojiY+54*h/100,bitmojiX+93*h/100,bitmojiY+37*h/100,bitmojiX+96*h/100,bitmojiY+77*h/100);//right hair
+triangle(bitmojiX+14*h/100,bitmojiY+54*h/100,bitmojiX+22*h/100,bitmojiY+37*h/100,bitmojiX+19*h/100,bitmojiY+77*h/100);//left hair
+triangle(bitmojiX+20*h/100,bitmojiY+46*h/100,bitmojiX+70*h/100,bitmojiY+40*h/100,bitmojiX+20*h/100,bitmojiY+65*h/100);
+fill(12, 66, 29);
+arc(bitmojiX+59*h/100,bitmojiY+35*h/100,82*h/100,65*h/100,165,375);//tophat
+fill(18, 31, 18);
+ellipse(bitmojiX+57*h/100,bitmojiY+42*h/100,90*h/100,14*h/100);//brimhat
+fill(15, 14, 15);
+ellipse (bitmojiX+41*h/100,bitmojiY+61*h/100,9*h/100,8*h/100);//left eye
+ellipse (bitmojiX+74*h/100,bitmojiY+61*h/100,9*h/100,8*h/100);//right eye
+stroke(0,0,0);
+line(bitmojiX+68*h/100,bitmojiY+58*h/100,bitmojiX+81*h/100,bitmojiY+57*h/100);
+line(bitmojiX+48*h/100,bitmojiY+58*h/100,bitmojiX+34*h/100,bitmojiY+57*h/100);
+fill(214, 164, 102);
+bezier(bitmojiX+60*h/100,bitmojiY+82*h/100,bitmojiX+56*h/100,bitmojiY+74*h/100,bitmojiX+77*h/100,bitmojiY+87*h/100,bitmojiX+
+58*h/100,bitmojiY+63*h/100);//nose
+fill(255, 255, 255);
+arc(bitmojiX+(57*h/100),bitmojiY+(90*h/100),29*h/100,18*h/100,4,178);//mouth
+line(bitmojiX+72*h/100,bitmojiY+90*h/100,bitmojiX+42*h/100,bitmojiY+90*h/100);//upperlip
+noStroke();
+fill(176, 14, 52);
+quad(bitmojiX+112*h/100,bitmojiY+165*h/100,bitmojiX+84*h/100,bitmojiY+113*h/100,bitmojiX+31*h/100,bitmojiY+113*h/100,bitmojiX+12*h/100,bitmojiY+165*h/100);//shirt
+fill(166, 129, 83);
+triangle(bitmojiX+73*h/100,bitmojiY+113*h/100,bitmojiX+44*h/100,bitmojiY+113*h/100,bitmojiX+59*h/100,bitmojiY+132*h/100);
+stroke(0, 0, 0);
+line(bitmojiX+33*h/100,bitmojiY+132*h/100,bitmojiX+86*h/100,bitmojiY+132*h/100);
+line(bitmojiX+27*h/100,bitmojiY+143*h/100,bitmojiX+93*h/100,bitmojiY+143*h/100);
+noStroke();
+fill(105, 6, 21);
+triangle(bitmojiX+42*h/100,bitmojiY+113*h/100,bitmojiX+61*h/100,bitmojiY+134*h/100,bitmojiX+41*h/100,bitmojiY+126*h/100);
+triangle(bitmojiX+74*h/100,bitmojiY+113*h/100,bitmojiX+77*h/100,bitmojiY+127*h/100,bitmojiX+59*h/100,bitmojiY+134*h/100);//collar
+};
+var Jacebitmoji = function(x,y,h) {
+      //****************************//HEAD
+    strokeWeight(1);
+    stroke(125, 47, 37);
+    fill(161, 55, 44);
+    ellipse(x-(h/100*33),y-(h/100*73),h-(h/100*139),h-(h/100*64));//hairbun1
+    ellipse(x+(h/100*3),y-(h/100*73),h-(h/100*139),h-(h/100*64));//hairbun2
+    stroke(201, 180, 167);
+    fill(247, 221, 205);
+    rect(x-(h/100*26),y-(h/100*23),h-(h/100*82),h-(h/100*85)); //neck
+    ellipse(x-(h/100*16),y-(h/100*49),h-(h/100*46),h-(h/100*42)); //head
+        //****************************//TORSO
+    rect(x-(h/100*37),y-(h/100*9),h-(h/100*57),(h/100*51));//torso
+    rect(x-(h/100*64),y-(h/100*5),h-(h/100*93),h-(h/100*90));//shoulderleft
+   //****************************//HANDS / peacesign 
+    fill(247, 221, 205);    
+    strokeWeight(4);
+    line(x-(h/100*76),y-(h/100*55),x-(h/100*60),y-(h/100*29)); 
+    line(x-(h/100*56),y-(h/100*55),x-(h/100*60),y-(h/100*29));
+    stroke(201, 180, 167);
+    fill(247, 221, 205);    
+    strokeWeight(1);
+    triangle(x-(h/100*59),y-(h/100*17),x-(h/100*72),y-(h/100*37),x-(h/100*48),y-(h/100*36));//handleft
+    rect(x-(h/100*64),y-(h/100*5),h-(h/100*90),h-(h/100*119)); //forearmleft
+    triangle(x+(h/100*12),y+(h/100*26),x+(h/100*5),y+(h/100*45),x+(h/100*29),y+(h/100*45));//handright
+    rect(x+(h/100*9),y+(h/100*4),h-(h/100*90),h-(h/100*70)); //forearmright
+        //****************************//SHIRT/ HI
+    strokeWeight(1);
+    stroke(107, 105, 104);
+    fill(255, 255, 255);
+    rect(x-(h/100*38),y-(h/100*8),h-(h/100*57),(h/100*35));//torso
+    rect(x-(h/100*56),y-(h/100*5),h-(h/100*82),h-(h/100*85));//leftsleeve
+    rect(x+(h/100*4),y-(h/100*5),h-(h/100*81),h-(h/100*84));//rightsleeve
+        //****************************//BOTTOMS
+    strokeWeight(10);    
+    stroke(0, 0, 0);
+    fill(0, 0, 0);
+    rect(x-(h/100*33),y+(h/100*34),h-(h/100*65),h-(h/100*90),(h/100*1));//skirt
+        //****************************//FRAMES
+    fill(0, 0, 0);
+    stroke(0,0,0);
+    ellipse(x-(h/100*27),y-(h/100*50),h-(h/100*90),h-(h/100*90));
+    ellipse(x-(h/100*7),y-(h/100*50),h-(h/100*90),h-(h/100*90));
+    strokeWeight(3);
+    line(x-(h/100*7),y-(h/100*50),x-(h/100*20),y-(h/100*50));
+    line(x-(h/100*7),y-(h/100*50),x-(h/100*43),y-(h/100*51));
+    line(x-(h/100*7),y-(h/100*50),x+(h/100*12),y-(h/100*51));
+        //****************************//EYES
+    strokeWeight(0);
+    fill(255, 255, 255);
+    ellipse(x-(h/100*27),y-(h/100*50),h-(h/100*85),h-(h/100*85)); //lefteye
+    ellipse(x-(h/100*7),y-(h/100*50),h-(h/100*85),h-(h/100*85)); //righteye
+    stroke(173, 210, 237);
+    strokeWeight(2);
+    fill(0, 0, 0);
+    ellipse(x-(h/100*26),y-(h/100*51),h-(h/100*95),h-(h/100*95)); //lefteyepupil
+    ellipse(x-(h/100*7),y-(h/100*51),h-(h/100*95),h-(h/100*95)); //lefteyepupil
+        //****************************//EXPRESSION/ BANGS
+
+    stroke(196, 42, 111);
+    strokeWeight(2.5);
+    arc(x-(h/100*16),y-(h/100*35),h-(h/100*82),h-(h/100*86),-(h/100*3),(h/100*175)); //Smile
+    fill(161, 55, 44);
+    stroke(125, 47, 37);
+    ellipse(x-(h/100*16),y-(h/100*68),h-(h/100*52),h-(h/100*77)); //bangs
+        //***************************//
+};
+/*************/
+//button program
+/*************/
+var Button = function(arrange) {
+    this.x = arrange.x || 0;
+    this.y = arrange.y || 0;
+    this.width = arrange.width || 150;
+    this.height = arrange.height || 50;
+    this.label = arrange.label || "Click";
+    this.onClick = arrange.onClick || function() {};
+};
+Button.prototype.MouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+Button.prototype.draw = function() {
+    fill(0, 234, 255);
+    rect(this.x, this.y, this.width-10, this.height, 5);
+    fill(0, 0, 0);
+    textSize(28);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+36, this.y-8+this.height/4);
+    
+};
+
+Button.prototype.handleMouseClick = function() {
+    if (this.MouseInside()) {
+        this.onClick();
+    }
+};
+var button = new Button({
+    x: 130,
+    y: 300,
+    label: "Start!",
+    onClick: function() {
+        currentScene=1;
+    }
+});
+
+
+button.draw();
+
+
+
+var Splash= function() {//MAIN Scene= 0
+    background(145, 143, 139);
+    textSize(42);
+    fill(17, 252, 0);
+    text("Trivia", 120,35);
+    Melisabitmoji(238,150,90);
+    Jacebitmoji(132,252,108);
+    button.draw();
+};
+
+var Trivia=function() {
+    background(143, 135, 237);
+    textSize(42);
+    fill(17, 252, 0);
+    text("Trivia", 120,35);
+};
+
+mouseClicked = function() {
+    if(currentScene=== 0)
+    {  button.handleMouseClick();}
+};
+
+draw= function() {
+    if (currentScene===0) {Splash();}
+     else 
+    {
+        Trivia();
+    }
+};
