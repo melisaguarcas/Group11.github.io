@@ -1,1 +1,538 @@
+var currentScene=1;
+var Melisabitmoji=function(bitmojiX,bitmojiY,h) {
+noStroke();
+//head;
+fill(214, 164, 102);
+ellipse(bitmojiX+58*h/100,bitmojiY+63*h/100,75*h/100,100*h/100);//head
+fill(217, 164, 100);
+ellipse(bitmojiX+22*h/100,bitmojiY+72*h/100,14*h/100,22*h/100);//left ear
+ellipse(bitmojiX+93*h/100,bitmojiY+72*h/100,14*h/100,22*h/100);//right ear
+fill(0, 0, 0);
+triangle(bitmojiX+101*h/100,bitmojiY+54*h/100,bitmojiX+93*h/100,bitmojiY+37*h/100,bitmojiX+96*h/100,bitmojiY+77*h/100);//right hair
+triangle(bitmojiX+14*h/100,bitmojiY+54*h/100,bitmojiX+22*h/100,bitmojiY+37*h/100,bitmojiX+19*h/100,bitmojiY+77*h/100);//left hair
+triangle(bitmojiX+20*h/100,bitmojiY+46*h/100,bitmojiX+70*h/100,bitmojiY+40*h/100,bitmojiX+20*h/100,bitmojiY+65*h/100);
+fill(12, 66, 29);
+arc(bitmojiX+59*h/100,bitmojiY+35*h/100,82*h/100,65*h/100,165,375);//tophat
+fill(18, 31, 18);
+ellipse(bitmojiX+57*h/100,bitmojiY+42*h/100,90*h/100,14*h/100);//brimhat
+fill(15, 14, 15);
+ellipse (bitmojiX+41*h/100,bitmojiY+61*h/100,9*h/100,8*h/100);//left eye
+ellipse (bitmojiX+74*h/100,bitmojiY+61*h/100,9*h/100,8*h/100);//right eye
+stroke(0,0,0);
+line(bitmojiX+68*h/100,bitmojiY+58*h/100,bitmojiX+81*h/100,bitmojiY+57*h/100);
+line(bitmojiX+48*h/100,bitmojiY+58*h/100,bitmojiX+34*h/100,bitmojiY+57*h/100);
+fill(214, 164, 102);
+bezier(bitmojiX+60*h/100,bitmojiY+82*h/100,bitmojiX+56*h/100,bitmojiY+74*h/100,bitmojiX+77*h/100,bitmojiY+87*h/100,bitmojiX+
+58*h/100,bitmojiY+63*h/100);//nose
+fill(255, 255, 255);
+arc(bitmojiX+(57*h/100),bitmojiY+(90*h/100),29*h/100,18*h/100,4,178);//mouth
+line(bitmojiX+72*h/100,bitmojiY+90*h/100,bitmojiX+42*h/100,bitmojiY+90*h/100);//upperlip
+noStroke();
+fill(176, 14, 52);
+quad(bitmojiX+112*h/100,bitmojiY+165*h/100,bitmojiX+84*h/100,bitmojiY+113*h/100,bitmojiX+31*h/100,bitmojiY+113*h/100,bitmojiX+12*h/100,bitmojiY+165*h/100);//shirt
+fill(166, 129, 83);
+triangle(bitmojiX+73*h/100,bitmojiY+113*h/100,bitmojiX+44*h/100,bitmojiY+113*h/100,bitmojiX+59*h/100,bitmojiY+132*h/100);
+stroke(0, 0, 0);
+line(bitmojiX+33*h/100,bitmojiY+132*h/100,bitmojiX+86*h/100,bitmojiY+132*h/100);
+line(bitmojiX+27*h/100,bitmojiY+143*h/100,bitmojiX+93*h/100,bitmojiY+143*h/100);
+noStroke();
+fill(105, 6, 21);
+triangle(bitmojiX+42*h/100,bitmojiY+113*h/100,bitmojiX+61*h/100,bitmojiY+134*h/100,bitmojiX+41*h/100,bitmojiY+126*h/100);
+triangle(bitmojiX+74*h/100,bitmojiY+113*h/100,bitmojiX+77*h/100,bitmojiY+127*h/100,bitmojiX+59*h/100,bitmojiY+134*h/100);//collar
+};
+var Jacebitmoji = function(x,y,h) {
+      //****************************//HEAD
+    strokeWeight(1);
+    stroke(125, 47, 37);
+    fill(161, 55, 44);
+    ellipse(x-(h/100*33),y-(h/100*73),h-(h/100*139),h-(h/100*64));//hairbun1
+    ellipse(x+(h/100*3),y-(h/100*73),h-(h/100*139),h-(h/100*64));//hairbun2
+    stroke(201, 180, 167);
+    fill(247, 221, 205);
+    rect(x-(h/100*26),y-(h/100*23),h-(h/100*82),h-(h/100*85)); //neck
+    ellipse(x-(h/100*16),y-(h/100*49),h-(h/100*46),h-(h/100*42)); //head
+        //****************************//TORSO
+    rect(x-(h/100*37),y-(h/100*9),h-(h/100*57),(h/100*51));//torso
+    rect(x-(h/100*64),y-(h/100*5),h-(h/100*93),h-(h/100*90));//shoulderleft
+   //****************************//HANDS / peacesign 
+    fill(247, 221, 205);    
+    strokeWeight(4);
+    line(x-(h/100*76),y-(h/100*55),x-(h/100*60),y-(h/100*29)); 
+    line(x-(h/100*56),y-(h/100*55),x-(h/100*60),y-(h/100*29));
+    stroke(201, 180, 167);
+    fill(247, 221, 205);    
+    strokeWeight(1);
+    triangle(x-(h/100*59),y-(h/100*17),x-(h/100*72),y-(h/100*37),x-(h/100*48),y-(h/100*36));//handleft
+    rect(x-(h/100*64),y-(h/100*5),h-(h/100*90),h-(h/100*119)); //forearmleft
+    triangle(x+(h/100*12),y+(h/100*26),x+(h/100*5),y+(h/100*45),x+(h/100*29),y+(h/100*45));//handright
+    rect(x+(h/100*9),y+(h/100*4),h-(h/100*90),h-(h/100*70)); //forearmright
+        //****************************//SHIRT/ HI
+    strokeWeight(1);
+    stroke(107, 105, 104);
+    fill(255, 255, 255);
+    rect(x-(h/100*38),y-(h/100*8),h-(h/100*57),(h/100*35));//torso
+    rect(x-(h/100*56),y-(h/100*5),h-(h/100*82),h-(h/100*85));//leftsleeve
+    rect(x+(h/100*4),y-(h/100*5),h-(h/100*81),h-(h/100*84));//rightsleeve
+        //****************************//BOTTOMS
+    strokeWeight(10);    
+    stroke(0, 0, 0);
+    fill(0, 0, 0);
+    rect(x-(h/100*33),y+(h/100*34),h-(h/100*65),h-(h/100*90),(h/100*1));//skirt
+        //****************************//FRAMES
+    fill(0, 0, 0);
+    stroke(0,0,0);
+    ellipse(x-(h/100*27),y-(h/100*50),h-(h/100*90),h-(h/100*90));
+    ellipse(x-(h/100*7),y-(h/100*50),h-(h/100*90),h-(h/100*90));
+    strokeWeight(3);
+    line(x-(h/100*7),y-(h/100*50),x-(h/100*20),y-(h/100*50));
+    line(x-(h/100*7),y-(h/100*50),x-(h/100*43),y-(h/100*51));
+    line(x-(h/100*7),y-(h/100*50),x+(h/100*12),y-(h/100*51));
+        //****************************//EYES
+    strokeWeight(0);
+    fill(255, 255, 255);
+    ellipse(x-(h/100*27),y-(h/100*50),h-(h/100*85),h-(h/100*85)); //lefteye
+    ellipse(x-(h/100*7),y-(h/100*50),h-(h/100*85),h-(h/100*85)); //righteye
+    stroke(173, 210, 237);
+    strokeWeight(2);
+    fill(0, 0, 0);
+    ellipse(x-(h/100*26),y-(h/100*51),h-(h/100*95),h-(h/100*95)); //lefteyepupil
+    ellipse(x-(h/100*7),y-(h/100*51),h-(h/100*95),h-(h/100*95)); //lefteyepupil
+        //****************************//EXPRESSION/ BANGS
+
+    stroke(196, 42, 111);
+    strokeWeight(2.5);
+    arc(x-(h/100*16),y-(h/100*35),h-(h/100*82),h-(h/100*86),-(h/100*3),(h/100*175)); //Smile
+    fill(161, 55, 44);
+    stroke(125, 47, 37);
+    ellipse(x-(h/100*16),y-(h/100*68),h-(h/100*52),h-(h/100*77)); //bangs
+        //***************************//
+};
+var AnswerOne = 0;
+var AnswerTwo = 0;
+var AnswerThree = 0;
+var oneA = false;
+var oneB = false;
+var twoA = false;
+var twoB = false;
+var threeA = false;
+var threeB = false;
+
+/*************/
+//BUTTON PROGRAM
+/*************/
+var Button = function(arrange) {
+    this.x = arrange.x || 0;
+    this.y = arrange.y || 0;
+    this.width = arrange.width || 150;
+    this.height = arrange.height || 50;
+    this.label = arrange.label || "Click";
+    this.onClick = arrange.onClick || function() {};
+};
+Button.prototype.MouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+Button.prototype.draw = function() {
+    fill(0, 255, 55);
+    rect(this.x+8, this.y, this.width-10, this.height, 5);
+    fill(0, 0, 0);
+    textSize(28);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+43, this.y-8+this.height/4);
+    
+};
+Button.prototype.handleMouseClick = function() {
+   if (this.MouseInside()) {
+       this.onClick();
+   }
+};
+var button = new Button({
+    x: 130,
+    y: 300,
+    label: "Start!",
+    onClick: function() {
+        currentScene = 1;
+    }
+});
+/**********************/
+//Buttons for Questions
+/*********************/
+
+var AnswerButton = function(arrange) {
+    this.x = arrange.x || 0;
+    this.y = arrange.y || 0;
+    this.width = arrange.width || 150;
+    this.height = arrange.height || 50;
+    this.label = arrange.label || "Click";
+    this.onClick = arrange.onClick || function() {};
+};
+
+AnswerButton.prototype.MouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+AnswerButton.prototype.draw = function() {
+    fill(237, 255, 36);
+    rect(this.x+35, this.y, this.width+-28, this.height+3, 5);
+    fill(0, 0, 0);
+    textSize(17);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+43, this.y-8+this.height/4, 110,100);
+    
+};
+
+AnswerButton.prototype.handleMouseClick = function() {
+    if (this.MouseInside()) {
+        this.onClick();
+    }
+};
+
+var EndButton = function(arrange) {
+    this.x = arrange.x || 0;
+    this.y = arrange.y || 0;
+    this.width = arrange.width || 150;
+    this.height = arrange.height || 50;
+    this.label = arrange.label || "Click";
+    this.onClick = arrange.onClick || function() {};
+};
+
+EndButton.prototype.MouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+EndButton.prototype.draw = function() {
+    fill(0, 221, 255);
+    rect(this.x+35, this.y, this.width+-29, this.height+-15, 5);
+    fill(0, 0, 0);
+    textSize(17);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+43, this.y-8+this.height/4, 110,100);
+    
+};
+
+EndButton.prototype.handleMouseClick = function() {
+    if (this.MouseInside()) {
+       this.onClick();
+   }
+};
+
+var moveButton = function(arrange) {
+    this.x = arrange.x || 0;
+    this.y = arrange.y || 0;
+    this.width = arrange.width || 150;
+    this.height = arrange.height || 50;
+    this.label = arrange.label || "Click";
+    this.onClick = arrange.onClick || function() {};
+};
+
+moveButton.prototype.MouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+moveButton.prototype.draw = function() {
+    fill(122, 130, 8);
+    rect(this.x+35, this.y, this.width+-28, this.height+3, 5);
+    fill(0, 0, 0);
+    textSize(17);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+43, this.y-8+this.height/4, 110,100);
+    
+};
+
+var end = new EndButton
+({
+    x:104,
+    y:336,
+    label: "Click to finish",
+    onClick: function(){
+        currentScene = 2;
+    }
+});
+
+var answerOneA = new AnswerButton ({
+    x: 40,
+    y: 50,
+    label: "Hiking in the woods",
+    onClick: function() {
+        oneA = true;
+        AnswerOne= 1;
+    }
+});
+
+var selectAnswerOneA = new moveButton ({
+    x: 40,
+    y: 50,
+    label: "Hiking in the woods",
+});
+
+var answerOneB = new AnswerButton ({
+    x: 175,
+    y: 50,
+    label: "Site-seeing in Europe",
+    onClick: function() {
+        oneB = true;
+        AnswerOne=2;
+    }
+});
+
+var selectAnswerOneB = new moveButton ({
+    x: 175,
+    y: 50,
+    label: "Site-seeing in Europe",
+});
+
+var answerTwoA = new AnswerButton ({
+    x: 40,
+    y: 165,
+    label: "Early bird gets the worm",
+    onClick: function() {
+        twoA = true;
+        AnswerTwo=1;
+    }
+});
+
+var selectAnswerTwoA = new moveButton ({
+    x: 40,
+    y: 165,
+    label: "Early bird gets the worm",
+});
+
+var answerTwoB = new AnswerButton ({
+    x: 175,
+    y: 165,
+    label: "Night-time is better",
+    onClick: function() {
+        twoB = true;
+        AnswerTwo=2;
+    }
+});
+
+var selectAnswerTwoB = new moveButton ({
+    x: 175,
+    y: 165,
+    label: "Night-time is better",
+});
+
+var answerThreeA = new AnswerButton ({
+    x: 40,
+    y: 259,
+    label: "Math and Science",
+    onClick: function() {
+        threeA = true;
+        AnswerThree=1;
+    }
+});
+
+var selectAnswerThreeA = new moveButton ({
+    x: 40,
+    y: 259,
+    label: "Math and Science",
+});
+
+var answerThreeB = new AnswerButton ({
+    x: 175,
+    y: 259,
+    label: "Writing and English",
+    onClick: function() {
+        threeB = true;
+        AnswerThree=2;
+    }
+});
+
+var selectAnswerThreeB = new moveButton ({
+    x: 175,
+    y: 259,
+    label: "Writing and English",
+});
+
+/*************/
+//BITMOJI POP UPs
+/*************/
+var pop1= function(rec)// bitmoji pops ups tells you who you are.
+{ 
+    Melisabitmoji(35,65,85,55);
+    fill (255, 0, 0);
+    ellipse (250,110,171,50);
+    fill(255, 255, 255);
+    textSize(15);
+    text("Melisa says you are "+ rec,185,92,140,105);
+    
+};
+
+var pop2 = function(rec)
+{ 
+    Jacebitmoji(105,155,112,55);
+    fill (255, 0, 0);
+    ellipse (250,110,171,50);
+    fill(255, 255, 255);
+    textSize(15);
+    text("Jace says you are "+ rec,190,90,140,105);
+};
+
+/*****************/
+//THE SCENES
+/*****************/
+
+var Splash= function() {//MAIN Scene= 0
+    background(94, 25, 255);
+    noFill();
+    rect(34,20,330,65);
+    textSize(26);
+    fill(255, 255, 255);
+    text("What Mythical Creature are you?", 45,20,330,80);
+    textSize(21);
+    text("Take a personality quiz to determine what mythical creature you are ", 130,95,200,140);
+    Melisabitmoji(280,150,90);
+    Jacebitmoji(93,252,108);
+    button.draw();
+};
+
+var Game=function() {// Gaming Scene= 1
+    background(0, 0, 0);
+    fill(96, 240, 134);
+    rect(20,20,358,360);
+    fill(0, 0, 0);
+    textSize(18);
+    
+    text("1.What is your ideal vacation",35,26);
+    answerOneA.draw();
+    answerOneB.draw();
+    
+    text("2. Are you more of a morning person or a night owl?",35,116,325,60);
+    answerTwoA.draw();
+    answerTwoB.draw();
+    
+    text("3.Which subject were you better at in school?", 35,230);
+    answerThreeA.draw();
+    answerThreeB.draw();
+    
+    end.draw();
+    
+    if(oneA === true){
+        selectAnswerOneA.draw();
+    }
+    else if(oneB === true){
+        selectAnswerOneB.draw();
+    }
+    if(twoA === true){
+        selectAnswerTwoA.draw();
+    }    
+
+    else if(twoB === true){
+        selectAnswerTwoB.draw();
+    }
+    
+    if(threeA === true){
+        selectAnswerThreeA.draw();
+    }
+    else if(threeB === true){
+        selectAnswerThreeB.draw();
+    }
+    
+};
+
+
+var EndScene = function()
+{
+    background(124, 168, 54);
+    if (AnswerOne === 1 && AnswerTwo === 1 && AnswerThree === 1 && currentScene===2 || AnswerOne === 2 && AnswerTwo === 2 && AnswerThree === 1 && currentScene===2)
+    {
+        //fill(0, 0, 0);
+        pop2("You're a Fairy");
+        textSize(25);
+        text("Happyness for days and sparkles ", 15, 235, 350,155);
+        
+    }
+    else if (AnswerOne === 1 && AnswerTwo === 2 && AnswerThree === 1 && currentScene===2 || AnswerOne === 2 && AnswerTwo === 2 && AnswerThree === 2 && currentScene===2 )
+    {
+        //fill(0, 0, 0);
+        pop1("You're a Vampire");
+        textSize(25);
+        text("You are dracula drarkness is your domain...bleh ", 15, 235, 350,155);
+        
+    }
+    else if (AnswerOne === 2 && AnswerTwo === 1 && AnswerThree === 1 && currentScene===2)
+    {
+        fill(0, 0, 0);
+        pop2("You're a Werewolf!");
+        textSize(25);
+        text("You ", 15, 235, 350,155);
+        
+    }
+    else if (AnswerOne === 1 && AnswerTwo === 2 && AnswerThree === 1 && currentScene===2)
+    {
+        fill(0, 0, 0);
+        pop2("You're a Werewolf!");
+        textSize(25);
+        text("You tend to keep to yourself, but loyal to those you consider a friend. You're passionate and tend to act before you think.", 15, 235, 350,155);
+    }
+    else if (AnswerOne === 2 && AnswerTwo === 1 && AnswerThree === 2 && currentScene===2 || AnswerOne === 1 && AnswerTwo === 2 && AnswerThree === 2 && currentScene===2)
+    {
+        fill (0, 0, 0);
+        pop1("You're a Unicorn!");
+        textSize(25);
+        text("You tend to keep to yourself, but loyal to those you consider a friend. You're passionate and tend to act before you think.", 15, 235, 350,155);
+        
+    }
+//    else 
+//    {
+//        currentScene=0;
+//    }
+};
+
+
+/*******************/
+// MAIN PROGRAM
+/*******************/
+mouseClicked= function() {
+     if(currentScene=== 0)
+    {  button.handleMouseClick();}
+    
+    if(currentScene===1 && oneA === false)
+    {   answerOneA.handleMouseClick();}
+    if(currentScene===1 && oneB === false)
+    {   answerOneB.handleMouseClick();}
+    
+    if(currentScene===1 && twoA === false)
+    {   answerTwoA.handleMouseClick();}
+    if(currentScene===1 && twoB === false)
+    {   answerTwoB.handleMouseClick();}
+    
+    if(currentScene===1 && threeA === false)
+    {   answerThreeA.handleMouseClick();}
+    if(currentScene===1 && threeB === false)
+    {   answerThreeB.handleMouseClick();}
+    
+    if(currentScene===1)
+    {   end.handleMouseClick();}
+    
+};
+ 
+draw= function() {
+    if (currentScene===0) 
+    {
+        Splash();
+    }
+    else 
+    {
+        Game();
+    }
+    if (currentScene === 2)
+    {
+        EndScene();
+    }
+};
+
 
