@@ -157,6 +157,23 @@ var button = new Button({
         currentScene = 1;
     }
 });
+var restart = new Button ({
+    x: 100,
+    y: 350,
+    label: "Restart",
+    onCLick: function() {
+        currentScene = 0;
+        AnswerOne = 0;
+        AnswerTwo = 0;
+        AnswerThree = 0;
+        oneA = false;
+        oneB = false;
+        twoA = false;
+        twoB = false;
+        threeA = false;
+        threeB = false;
+    }
+});
 /**********************/
 //Buttons for Questions
 /*********************/
@@ -178,7 +195,7 @@ AnswerButton.prototype.MouseInside = function() {
 };
 
 AnswerButton.prototype.draw = function() {
-    fill(237, 255, 36);
+    fill(185, 249, 250);
     rect(this.x+35, this.y, this.width+-28, this.height+3, 5);
     fill(0, 0, 0);
     textSize(17);
@@ -210,7 +227,7 @@ EndButton.prototype.MouseInside = function() {
 };
 
 EndButton.prototype.draw = function() {
-    fill(0, 221, 255);
+    fill(46, 242, 85);
     rect(this.x+35, this.y, this.width+-29, this.height+-15, 5);
     fill(0, 0, 0);
     textSize(17);
@@ -360,7 +377,7 @@ var selectAnswerThreeB = new moveButton ({
 /*************/
 //BITMOJI POP UPs
 /*************/
-var pop1= function(rec)// bitmoji pops ups tells you who you are.
+var pop1= function(rec)// Goober, salamande,ricky, robo man,
 { 
     Melisabitmoji(35,65,85,55);
     fill (255, 0, 0);
@@ -386,7 +403,7 @@ var pop2 = function(rec)
 /*****************/
 
 var Splash= function() {//MAIN Scene= 0
-    background(94, 25, 255);
+    background(126, 71, 255);
     noFill();
     rect(34,20,330,65);
     textSize(26);
@@ -401,7 +418,7 @@ var Splash= function() {//MAIN Scene= 0
 
 var Game=function() {// Gaming Scene= 1
     background(0, 0, 0);
-    fill(96, 240, 134);
+    fill(196, 186, 245);
     rect(20,20,358,360);
     fill(0, 0, 0);
     textSize(18);
@@ -446,13 +463,14 @@ var Game=function() {// Gaming Scene= 1
 
 var EndScene = function()
 {
-    background(124, 168, 54);
+    background(76, 212, 198);
     if (AnswerOne === 1 && AnswerTwo === 1 && AnswerThree === 1 && currentScene===2 || AnswerOne === 2 && AnswerTwo === 2 && AnswerThree === 1 && currentScene===2)
     {
         //fill(0, 0, 0);
         pop2("You're a Fairy");
         textSize(25);
-        text("Happyness for days and sparkles ", 15, 235, 350,155);
+        text("Happiness and sparkles is your game! You know how to brighten anyone's day, and are good at whatever you set your mind to. ", 15, 210, 380, 155);
+        restart.draw();
         
     }
     else if (AnswerOne === 1 && AnswerTwo === 2 && AnswerThree === 1 && currentScene===2 || AnswerOne === 2 && AnswerTwo === 2 && AnswerThree === 2 && currentScene===2 )
@@ -460,30 +478,24 @@ var EndScene = function()
         //fill(0, 0, 0);
         pop1("You're a Vampire");
         textSize(25);
-        text("You are dracula drarkness is your domain...bleh ", 15, 235, 350,155);
-        
+        text("You and Dracula are darkness buddies, cool headed and mysterious. A bit batty at times however. ", 15, 210, 380,155);
+        restart.draw();
     }
     else if (AnswerOne === 2 && AnswerTwo === 1 && AnswerThree === 1 && currentScene===2)
     {
         fill(0, 0, 0);
         pop2("You're a Werewolf!");
         textSize(25);
-        text("You ", 15, 235, 350,155);
-        
-    }
-    else if (AnswerOne === 1 && AnswerTwo === 2 && AnswerThree === 1 && currentScene===2)
-    {
-        fill(0, 0, 0);
-        pop2("You're a Werewolf!");
-        textSize(25);
-        text("You tend to keep to yourself, but loyal to those you consider a friend. You're passionate and tend to act before you think.", 15, 235, 350,155);
+        text("You tend to keep to yourself, but loyal to those you consider a friend. You're passionate and tend to act before you think.", 15, 210, 380,155);
+        restart.draw();
     }
     else if (AnswerOne === 2 && AnswerTwo === 1 && AnswerThree === 2 && currentScene===2 || AnswerOne === 1 && AnswerTwo === 2 && AnswerThree === 2 && currentScene===2)
     {
         fill (0, 0, 0);
         pop1("You're a Unicorn!");
         textSize(25);
-        text("You tend to keep to yourself, but loyal to those you consider a friend. You're passionate and tend to act before you think.", 15, 235, 350,155);
+        text("You tend to keep to yourself, but loyal to those you consider a friend. You're passionate and tend to act before you think.", 15, 210, 380,155);
+        restart.draw();
         
     }
 //    else 
