@@ -1,4 +1,4 @@
-var currentScene=0;
+var currentScene=1;
 var Melisabitmoji=function(bitmojiX,bitmojiY,h) {
 noStroke();
 //head;
@@ -107,8 +107,18 @@ var Jacebitmoji = function(x,y,h) {
     ellipse(x-(h/100*16),y-(h/100*68),h-(h/100*52),h-(h/100*77)); //bangs
         //***************************//
 };
+var AnswerOne = 0;
+var AnswerTwo = 0;
+var AnswerThree = 0;
+var oneA = false;
+var oneB = false;
+var twoA = false;
+var twoB = false;
+var threeA = false;
+var threeB = false;
+
 /*************/
-//button program
+//BUTTON PROGRAM
 /*************/
 var Button = function(arrange) {
     this.x = arrange.x || 0;
@@ -126,60 +136,411 @@ Button.prototype.MouseInside = function() {
 };
 
 Button.prototype.draw = function() {
-    fill(0, 234, 255);
-    rect(this.x, this.y, this.width-10, this.height, 5);
+    fill(0, 255, 55);
+    rect(this.x+8, this.y, this.width-10, this.height, 5);
     fill(0, 0, 0);
     textSize(28);
     textAlign(LEFT, TOP);
-    text(this.label, this.x+36, this.y-8+this.height/4);
+    text(this.label, this.x+43, this.y-8+this.height/4);
     
 };
-
 Button.prototype.handleMouseClick = function() {
-    if (this.MouseInside()) {
-        this.onClick();
-    }
+   if (this.MouseInside()) {
+       this.onClick();
+   }
 };
 var button = new Button({
     x: 130,
     y: 300,
     label: "Start!",
     onClick: function() {
-        currentScene=1;
+        currentScene = 1;
+    }
+});
+var restart = new Button ({
+    x: 100,
+    y: 350,
+    label: "Restart",
+    onCLick: function() {
+        currentScene = 0;
+        AnswerOne = 0;
+        AnswerTwo = 0;
+        AnswerThree = 0;
+        oneA = false;
+        oneB = false;
+        twoA = false;
+        twoB = false;
+        threeA = false;
+        threeB = false;
+    }
+});
+/**********************/
+//Buttons for Questions
+/*********************/
+
+var AnswerButton = function(arrange) {
+    this.x = arrange.x || 0;
+    this.y = arrange.y || 0;
+    this.width = arrange.width || 150;
+    this.height = arrange.height || 50;
+    this.label = arrange.label || "Click";
+    this.onClick = arrange.onClick || function() {};
+};
+
+AnswerButton.prototype.MouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+AnswerButton.prototype.draw = function() {
+    fill(185, 249, 250);
+    rect(this.x+35, this.y, this.width+-28, this.height+3, 5);
+    fill(0, 0, 0);
+    textSize(17);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+43, this.y-8+this.height/4, 110,100);
+    
+};
+
+AnswerButton.prototype.handleMouseClick = function() {
+    if (this.MouseInside()) {
+        this.onClick();
+    }
+};
+
+var EndButton = function(arrange) {
+    this.x = arrange.x || 0;
+    this.y = arrange.y || 0;
+    this.width = arrange.width || 150;
+    this.height = arrange.height || 50;
+    this.label = arrange.label || "Click";
+    this.onClick = arrange.onClick || function() {};
+};
+
+EndButton.prototype.MouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+EndButton.prototype.draw = function() {
+    fill(46, 242, 85);
+    rect(this.x+35, this.y, this.width+-29, this.height+-15, 5);
+    fill(0, 0, 0);
+    textSize(17);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+43, this.y-8+this.height/4, 110,100);
+    
+};
+
+EndButton.prototype.handleMouseClick = function() {
+    if (this.MouseInside()) {
+       this.onClick();
+   }
+};
+
+var moveButton = function(arrange) {
+    this.x = arrange.x || 0;
+    this.y = arrange.y || 0;
+    this.width = arrange.width || 150;
+    this.height = arrange.height || 50;
+    this.label = arrange.label || "Click";
+    this.onClick = arrange.onClick || function() {};
+};
+
+moveButton.prototype.MouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+moveButton.prototype.draw = function() {
+    fill(122, 130, 8);
+    rect(this.x+35, this.y, this.width+-28, this.height+3, 5);
+    fill(0, 0, 0);
+    textSize(17);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+43, this.y-8+this.height/4, 110,100);
+    
+};
+
+var end = new EndButton
+({
+    x:104,
+    y:336,
+    label: "Click to finish",
+    onClick: function(){
+        currentScene = 2;
     }
 });
 
+var answerOneA = new AnswerButton ({
+    x: 40,
+    y: 50,
+    label: "Hiking in the woods",
+    onClick: function() {
+        oneA = true;
+        AnswerOne= 1;
+    }
+});
 
-button.draw();
+var selectAnswerOneA = new moveButton ({
+    x: 40,
+    y: 50,
+    label: "Hiking in the woods",
+});
 
+var answerOneB = new AnswerButton ({
+    x: 175,
+    y: 50,
+    label: "Site-seeing in Europe",
+    onClick: function() {
+        oneB = true;
+        AnswerOne=2;
+    }
+});
 
+var selectAnswerOneB = new moveButton ({
+    x: 175,
+    y: 50,
+    label: "Site-seeing in Europe",
+});
+
+var answerTwoA = new AnswerButton ({
+    x: 40,
+    y: 165,
+    label: "Early bird gets the worm",
+    onClick: function() {
+        twoA = true;
+        AnswerTwo=1;
+    }
+});
+
+var selectAnswerTwoA = new moveButton ({
+    x: 40,
+    y: 165,
+    label: "Early bird gets the worm",
+});
+
+var answerTwoB = new AnswerButton ({
+    x: 175,
+    y: 165,
+    label: "Night-time is better",
+    onClick: function() {
+        twoB = true;
+        AnswerTwo=2;
+    }
+});
+
+var selectAnswerTwoB = new moveButton ({
+    x: 175,
+    y: 165,
+    label: "Night-time is better",
+});
+
+var answerThreeA = new AnswerButton ({
+    x: 40,
+    y: 259,
+    label: "Math and Science",
+    onClick: function() {
+        threeA = true;
+        AnswerThree=1;
+    }
+});
+
+var selectAnswerThreeA = new moveButton ({
+    x: 40,
+    y: 259,
+    label: "Math and Science",
+});
+
+var answerThreeB = new AnswerButton ({
+    x: 175,
+    y: 259,
+    label: "Writing and English",
+    onClick: function() {
+        threeB = true;
+        AnswerThree=2;
+    }
+});
+
+var selectAnswerThreeB = new moveButton ({
+    x: 175,
+    y: 259,
+    label: "Writing and English",
+});
+
+/*************/
+//BITMOJI POP UPs
+/*************/
+var pop1= function(rec)// Goober, salamande,ricky, robo man,
+{ 
+    Melisabitmoji(35,65,85,55);
+    fill (255, 0, 0);
+    ellipse (250,110,171,50);
+    fill(255, 255, 255);
+    textSize(15);
+    text("Melisa says you are "+ rec,185,92,140,105);
+    
+};
+
+var pop2 = function(rec)
+{ 
+    Jacebitmoji(105,155,112,55);
+    fill (255, 0, 0);
+    ellipse (250,110,171,50);
+    fill(255, 255, 255);
+    textSize(15);
+    text("Jace says you are "+ rec,190,90,140,105);
+};
+
+/*****************/
+//THE SCENES
+/*****************/
 
 var Splash= function() {//MAIN Scene= 0
-    background(145, 143, 139);
-    textSize(42);
-    fill(17, 252, 0);
-    text("Trivia", 120,35);
-    Melisabitmoji(238,150,90);
-    Jacebitmoji(132,252,108);
+    background(126, 71, 255);
+    noFill();
+    rect(34,20,330,65);
+    textSize(26);
+    fill(255, 255, 255);
+    text("What Mythical Creature are you?", 45,20,330,80);
+    textSize(21);
+    text("Take a personality quiz to determine what mythical creature you are ", 130,95,200,140);
+    Melisabitmoji(280,150,90);
+    Jacebitmoji(93,252,108);
     button.draw();
 };
 
-var Trivia=function() {
-    background(143, 135, 237);
-    textSize(42);
-    fill(17, 252, 0);
-    text("Trivia", 120,35);
+var Game=function() {// Gaming Scene= 1
+    background(0, 0, 0);
+    fill(196, 186, 245);
+    rect(20,20,358,360);
+    fill(0, 0, 0);
+    textSize(18);
+    
+    text("1.What is your ideal vacation",35,26);
+    answerOneA.draw();
+    answerOneB.draw();
+    
+    text("2. Are you more of a morning person or a night owl?",35,116,325,60);
+    answerTwoA.draw();
+    answerTwoB.draw();
+    
+    text("3.Which subject were you better at in school?", 35,230);
+    answerThreeA.draw();
+    answerThreeB.draw();
+    
+    end.draw();
+    
+    if(oneA === true){
+        selectAnswerOneA.draw();
+    }
+    else if(oneB === true){
+        selectAnswerOneB.draw();
+    }
+    if(twoA === true){
+        selectAnswerTwoA.draw();
+    }    
+
+    else if(twoB === true){
+        selectAnswerTwoB.draw();
+    }
+    
+    if(threeA === true){
+        selectAnswerThreeA.draw();
+    }
+    else if(threeB === true){
+        selectAnswerThreeB.draw();
+    }
+    
 };
 
-mouseClicked = function() {
-    if(currentScene=== 0)
-    {  button.handleMouseClick();}
-};
 
-draw= function() {
-    if (currentScene===0) {Splash();}
-     else 
+var EndScene = function()
+{
+    background(76, 212, 198);
+    if (AnswerOne === 1 && AnswerTwo === 1 && AnswerThree === 1 && currentScene===2 || AnswerOne === 2 && AnswerTwo === 2 && AnswerThree === 1 && currentScene===2)
     {
-        Trivia();
+        //fill(0, 0, 0);
+        pop2("You're a Fairy");
+        textSize(25);
+        text("Happiness and sparkles is your game! You know how to brighten anyone's day, and are good at whatever you set your mind to. ", 15, 210, 380, 155);
+        restart.draw();
+        
+    }
+    else if (AnswerOne === 1 && AnswerTwo === 2 && AnswerThree === 1 && currentScene===2 || AnswerOne === 2 && AnswerTwo === 2 && AnswerThree === 2 && currentScene===2 )
+    {
+        //fill(0, 0, 0);
+        pop1("You're a Vampire");
+        textSize(25);
+        text("You and Dracula are darkness buddies, cool headed and mysterious. A bit batty at times however. ", 15, 210, 380,155);
+        restart.draw();
+    }
+    else if (AnswerOne === 2 && AnswerTwo === 1 && AnswerThree === 1 && currentScene===2)
+    {
+        fill(0, 0, 0);
+        pop2("You're a Werewolf!");
+        textSize(25);
+        text("You tend to keep to yourself, but loyal to those you consider a friend. You're passionate and tend to act before you think.", 15, 210, 380,155);
+        restart.draw();
+    }
+    else if (AnswerOne === 2 && AnswerTwo === 1 && AnswerThree === 2 && currentScene===2 || AnswerOne === 1 && AnswerTwo === 2 && AnswerThree === 2 && currentScene===2)
+    {
+        fill (0, 0, 0);
+        pop1("You're a Unicorn!");
+        textSize(25);
+        text("You tend to keep to yourself, but loyal to those you consider a friend. You're passionate and tend to act before you think.", 15, 210, 380,155);
+        restart.draw();
+        
     }
 };
+
+
+/*******************/
+// MAIN PROGRAM
+/*******************/
+mouseClicked= function() {
+     if(currentScene=== 0)
+    {  button.handleMouseClick();}
+    
+    if(currentScene===1 && oneA === false)
+    {   answerOneA.handleMouseClick();}
+    if(currentScene===1 && oneB === false)
+    {   answerOneB.handleMouseClick();}
+    
+    if(currentScene===1 && twoA === false)
+    {   answerTwoA.handleMouseClick();}
+    if(currentScene===1 && twoB === false)
+    {   answerTwoB.handleMouseClick();}
+    
+    if(currentScene===1 && threeA === false)
+    {   answerThreeA.handleMouseClick();}
+    if(currentScene===1 && threeB === false)
+    {   answerThreeB.handleMouseClick();}
+    
+    if(currentScene===1)
+    {   end.handleMouseClick();}
+    
+};
+ 
+draw= function() {
+    if (currentScene===0) 
+    {
+        Splash();
+    }
+    else 
+    {
+        Game();
+    }
+    if (currentScene === 2)
+    {
+        EndScene();
+    }
+};
+
+
