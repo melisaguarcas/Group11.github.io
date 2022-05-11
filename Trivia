@@ -498,10 +498,6 @@ var EndScene = function()
         restart.draw();
         
     }
-//    else 
-//    {
-//        currentScene=0;
-//    }
 };
 
 
